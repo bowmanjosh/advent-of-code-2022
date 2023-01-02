@@ -53,7 +53,7 @@ final class Day1 extends Day {
         + Arrays.stream(topCalories).sum());
   }
 
-  String getRawInput() {
+  private String getRawInput() {
     return """
         3264
         4043

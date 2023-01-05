@@ -3,9 +3,10 @@ package example.josh.advent2022;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 final class Day3 extends Day {
-  final HashMap<Character, Integer> lookupTable;
+  private final HashMap<Character, Integer> lookupTable;
 
   Day3() {
     lookupTable = new HashMap<>(52);
@@ -49,7 +50,22 @@ final class Day3 extends Day {
 
   @Override
   void part2() {
-    System.out.println("Part 2 not done yet.");
+    final var scanner = new Scanner(getRawInput());
+
+    int prioritySum = 0;
+    for (int i = 0; i < 100; i++) {
+      var hashSet = getHashSet(scanner);
+      hashSet.retainAll(getHashSet(scanner));
+      hashSet.retainAll(getHashSet(scanner));
+      prioritySum += lookupTable.get(hashSet.iterator().next());
+    }
+
+    System.out.println("Part 2. Sum of all priorities: " + prioritySum);
+  }
+
+  private HashSet<Character> getHashSet(Scanner scanner) {
+    return scanner.next().chars().mapToObj(e -> (char) e)
+        .collect(Collectors.toCollection(HashSet::new));
   }
 
   private String getRawInput() {

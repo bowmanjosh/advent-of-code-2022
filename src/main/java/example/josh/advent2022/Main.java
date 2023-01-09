@@ -27,6 +27,9 @@ public final class Main {
       case 3 -> {
         objectDay = new Day3();
       }
+      case 4 -> {
+        objectDay = new Day4();
+      }
       default -> {
         System.out.println("Day \"" + inputDay + "\" is not implemented yet.");
         return;

@@ -1032,6 +1032,18 @@ final class Day4 extends Day {
 
   @Override
   void part2() {
-    System.out.println("Day 4 part 2 not done yet.");
+    int overlappingPairs = 0;
+
+    for (int[] pair : input) {
+      if (pair[0] == pair[2]) {
+        overlappingPairs++;
+      } else if ((pair[0] < pair[2]) && (pair[1] >= pair[2])) {
+        overlappingPairs++;
+      } else if ((pair[0] > pair[2]) && (pair[3] >= pair[0])) {
+        overlappingPairs++;
+      }
+    }
+
+    System.out.println("Day 4 part 2. Overlapping pairs: " + overlappingPairs);
   }
 }

@@ -33,6 +33,9 @@ public final class Main {
       case 5 -> {
         objectDay = new Day5();
       }
+      case 6 -> {
+        objectDay = new Day6();
+      }
       default -> {
         System.out.println("Day \"" + inputDay + "\" is not implemented yet.");
         return;
